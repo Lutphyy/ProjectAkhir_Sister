@@ -1,0 +1,20 @@
+{
+  "node-a": {
+    "nodeId": "node-a",
+    "url": "http://localhost:9001",
+    "capacityBytes": 1073741824,
+    "usedBytes": 2571821,
+    "status": "HEALTHY",
+    "lastSeenAt": "2025-11-06T08:51:06.0854417Z",
+    "lastChosen": "2025-11-06T08:37:31.5404914Z"
+  },
+  "node-b": {
+    "nodeId": "node-b",
+    "url": "http://localhost:9002",
+    "capacityBytes": 1073741824,
+    "usedBytes": 2571821,
+    "status": "HEALTHY",
+    "lastSeenAt": "2025-11-06T08:40:47.3408171Z",
+    "lastChosen": "2025-11-06T08:37:31.5404914Z"
+  }
+}
