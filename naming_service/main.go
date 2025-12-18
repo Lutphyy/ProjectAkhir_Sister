@@ -20,6 +20,7 @@ import (
 /* ==================== TYPES ==================== */
 
 type ReplicaStatus string
+
 const (
 	ReplicaReady   ReplicaStatus = "READY"
 	ReplicaMissing ReplicaStatus = "MISSING"
@@ -27,6 +28,7 @@ const (
 )
 
 type FileState string
+
 const (
 	StateAllocated FileState = "ALLOCATED"
 	StatePartial   FileState = "PARTIAL"
@@ -36,6 +38,7 @@ const (
 )
 
 type NodeStatus string
+
 const (
 	NodeHealthy NodeStatus = "HEALTHY"
 	NodeSuspect NodeStatus = "SUSPECT"
@@ -408,6 +411,231 @@ func (sv *Server) handleReportMissing(w http.ResponseWriter, r *http.Request) {
 	writeJSONResp(w, map[string]any{"accepted": true, "state": meta.State})
 }
 
+/* ==================== METRICS & MONITORING ==================== */
+
+func (sv *Server) handleMetrics(w http.ResponseWriter, r *http.Request) {
+	sv.store.mu.RLock()
+	defer sv.store.mu.RUnlock()
+
+	totalFiles := len(sv.store.files)
+	totalNodes := len(sv.store.nodes)
+	var totalSize, usedBytes, capacityBytes int64
+	healthyNodes, suspectNodes, downNodes := 0, 0, 0
+	filesByState := map[FileState]int{}
+
+	for _, f := range sv.store.files {
+		totalSize += f.Size
+		filesByState[f.State]++
+	}
+
+	for _, n := range sv.store.nodes {
+		capacityBytes += n.CapacityBytes
+		usedBytes += n.UsedBytes
+		switch healthOf(n) {
+		case NodeHealthy:
+			healthyNodes++
+		case NodeSuspect:
+			suspectNodes++
+		case NodeDown:
+			downNodes++
+		}
+	}
+
+	writeJSONResp(w, map[string]any{
+		"totalFiles":     totalFiles,
+		"totalNodes":     totalNodes,
+		"totalSizeBytes": totalSize,
+		"nodes": map[string]int{
+			"healthy": healthyNodes,
+			"suspect": suspectNodes,
+			"down":    downNodes,
+		},
+		"storage": map[string]int64{
+			"capacity": capacityBytes,
+			"used":     usedBytes,
+			"free":     capacityBytes - usedBytes,
+		},
+		"filesByState": filesByState,
+	})
+}
+
+func (sv *Server) handleListFiles(w http.ResponseWriter, r *http.Request) {
+	sv.store.mu.RLock()
+	defer sv.store.mu.RUnlock()
+
+	type fileInfo struct {
+		FileID       string    `json:"fileId"`
+		Filename     string    `json:"filename"`
+		Size         int64     `json:"size"`
+		State        FileState `json:"state"`
+		ReplicaCount int       `json:"replicaCount"`
+		CreatedAt    time.Time `json:"createdAt"`
+	}
+
+	var files []fileInfo
+	for _, f := range sv.store.files {
+		files = append(files, fileInfo{
+			FileID:       f.FileID,
+			Filename:     f.Filename,
+			Size:         f.Size,
+			State:        f.State,
+			ReplicaCount: len(f.Replicas),
+			CreatedAt:    f.CreatedAt,
+		})
+	}
+	writeJSONResp(w, files)
+}
+
+func (sv *Server) handleFileInfo(w http.ResponseWriter, r *http.Request) {
+	fileID := strings.TrimPrefix(r.URL.Path, "/file-info/")
+	if fileID == "" {
+		http.Error(w, "missing fileId", http.StatusBadRequest)
+		return
+	}
+	sv.store.mu.RLock()
+	meta, ok := sv.store.files[fileID]
+	sv.store.mu.RUnlock()
+	if !ok {
+		http.Error(w, "not found", http.StatusNotFound)
+		return
+	}
+	writeJSONResp(w, meta)
+}
+
+func (sv *Server) handleDeleteFile(w http.ResponseWriter, r *http.Request) {
+	var body struct {
+		FileID string `json:"fileId"`
+	}
+	if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
+		http.Error(w, "bad json", http.StatusBadRequest)
+		return
+	}
+
+	sv.store.mu.Lock()
+	defer sv.store.mu.Unlock()
+	if _, ok := sv.store.files[body.FileID]; !ok {
+		http.Error(w, "file not found", http.StatusNotFound)
+		return
+	}
+	delete(sv.store.files, body.FileID)
+	go sv.store.persist()
+	writeJSONResp(w, map[string]any{"deleted": true, "fileId": body.FileID})
+}
+
+func handleShutdown(w http.ResponseWriter, r *http.Request) {
+	writeJSONResp(w, map[string]any{"ok": true})
+	go func() { time.Sleep(200 * time.Millisecond); os.Exit(0) }()
+}
+
+func (sv *Server) handleListNodes(w http.ResponseWriter, r *http.Request) {
+	sv.store.mu.RLock()
+	defer sv.store.mu.RUnlock()
+
+	type nodeInfo struct {
+		NodeID        string     `json:"nodeId"`
+		URL           string     `json:"url"`
+		Status        NodeStatus `json:"status"`
+		CapacityBytes int64      `json:"capacityBytes"`
+		UsedBytes     int64      `json:"usedBytes"`
+		FreeBytes     int64      `json:"freeBytes"`
+		LoadFactor    float64    `json:"loadFactor"`
+		LastSeenAt    time.Time  `json:"lastSeenAt"`
+	}
+
+	var nodes []nodeInfo
+	for _, n := range sv.store.nodes {
+		nodes = append(nodes, nodeInfo{
+			NodeID:        n.NodeID,
+			URL:           n.URL,
+			Status:        healthOf(n),
+			CapacityBytes: n.CapacityBytes,
+			UsedBytes:     n.UsedBytes,
+			FreeBytes:     freeBytes(n),
+			LoadFactor:    loadFactor(n),
+			LastSeenAt:    n.LastSeenAt,
+		})
+	}
+	writeJSONResp(w, nodes)
+}
+
+/* ==================== AUTO-HEALING ==================== */
+
+func (sv *Server) startAutoHealing() {
+	ticker := time.NewTicker(30 * time.Second)
+	go func() {
+		for range ticker.C {
+			sv.checkAndHealReplicas()
+		}
+	}()
+	log.Println("Auto-healing background job started")
+}
+
+func (sv *Server) checkAndHealReplicas() {
+	sv.store.mu.Lock()
+	defer sv.store.mu.Unlock()
+
+	for fileID, meta := range sv.store.files {
+		if meta.State == StateDeleted || meta.State == StateAllocated {
+			continue
+		}
+
+		// Count healthy replicas
+		healthyCount := 0
+		for _, rep := range meta.Replicas {
+			if n, ok := sv.store.nodes[rep.NodeID]; ok && healthOf(n) == NodeHealthy && rep.Status == ReplicaReady {
+				healthyCount++
+			}
+		}
+
+		// Need healing?
+		if healthyCount < sv.store.repFactor {
+			log.Printf("[AUTO-HEAL] File %s (%s) has only %d healthy replicas, need %d",
+				fileID, meta.Filename, healthyCount, sv.store.repFactor)
+
+			// Find candidate nodes (not already hosting this file)
+			existingNodes := map[string]bool{}
+			for _, rep := range meta.Replicas {
+				existingNodes[rep.NodeID] = true
+			}
+
+			var candidates []*NodeInfo
+			for _, n := range sv.store.nodes {
+				if !existingNodes[n.NodeID] && healthOf(n) == NodeHealthy && freeBytes(n) >= meta.Size {
+					candidates = append(candidates, n)
+				}
+			}
+
+			needed := sv.store.repFactor - healthyCount
+			if len(candidates) >= needed {
+				// Sort by load factor
+				sort.Slice(candidates, func(i, j int) bool {
+					return loadFactor(candidates[i]) < loadFactor(candidates[j])
+				})
+
+				for i := 0; i < needed && i < len(candidates); i++ {
+					n := candidates[i]
+					meta.Replicas = append(meta.Replicas, ReplicaInfo{
+						NodeID:         n.NodeID,
+						URL:            n.URL,
+						Status:         ReplicaMissing, // Will be updated when copied
+						LastVerifiedAt: now(),
+					})
+					log.Printf("[AUTO-HEAL] Added replica candidate: %s for file %s", n.NodeID, fileID)
+				}
+
+				if meta.State == StateAvailable {
+					meta.State = StateDegraded
+				}
+				meta.UpdatedAt = now()
+				go sv.store.persist()
+			} else {
+				log.Printf("[AUTO-HEAL] Not enough candidate nodes for file %s (need %d, have %d)",
+					fileID, needed, len(candidates))
+			}
+		}
+	}
+}
+
 /* ============== SHARED RESP & BOOTSTRAP ============== */
 
 func writeJSONResp(w http.ResponseWriter, v any) {
@@ -431,12 +659,26 @@ func main() {
 
 	sv := &Server{store: store}
 	mux := http.NewServeMux()
-	mux.HandleFunc("/register-node",  sv.handleRegisterNode)
-	mux.HandleFunc("/heartbeat",      sv.handleHeartbeat)
-	mux.HandleFunc("/allocate",       sv.handleAllocate)
-	mux.HandleFunc("/commit",         sv.handleCommit)
-	mux.HandleFunc("/lookup/",        sv.handleLookup)        // /lookup/{fileId}
+	// Node management
+	mux.HandleFunc("/register-node", sv.handleRegisterNode)
+	mux.HandleFunc("/heartbeat", sv.handleHeartbeat)
+
+	// File operations
+	mux.HandleFunc("/allocate", sv.handleAllocate)
+	mux.HandleFunc("/commit", sv.handleCommit)
+	mux.HandleFunc("/lookup/", sv.handleLookup) // /lookup/{fileId}
 	mux.HandleFunc("/report-missing", sv.handleReportMissing)
+
+	// Monitoring & metrics
+	mux.HandleFunc("/metrics", sv.handleMetrics)
+	mux.HandleFunc("/list-files", sv.handleListFiles)
+	mux.HandleFunc("/list-nodes", sv.handleListNodes)
+	mux.HandleFunc("/file-info/", sv.handleFileInfo)
+	mux.HandleFunc("/delete-file", sv.handleDeleteFile)
+	mux.HandleFunc("/shutdown", handleShutdown)
+
+	// Start auto-healing
+	sv.startAutoHealing()
 
 	addr := ":8000"
 	log.Printf("Naming Service running at %s ...", addr)

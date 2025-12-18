@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>DFS Mini — UI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+  /* --- SETUP TAMPILAN KEREN (CSS) --- */
+  :root {
+    --primary: #00d2ff;
+    --secondary: #3a7bd5;
+    --bg-dark: #0f0c29;
+    --bg-light: #302b63;
+    --glass: rgba(255, 255, 255, 0.1);
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, var(--bg-dark), var(--bg-light), #24243e);
+    min-height: 100vh;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #00d2ff, #928DAB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 0px 20px rgba(0, 210, 255, 0.3);
+  }
+
+  /* KOTAK KACA (Glassmorphism) */
+  .card {
+    background: var(--glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 25px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+  }
+
+  /* FORM STYLE */
+  .row {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+  }
+
+  label {
+    min-width: 100px;
+    color: #bbb;
+    font-size: 0.9rem;
+  }
+
+  input[type="text"] {
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    outline: none;
+    transition: 0.3s;
+  }
+
+  input[type="text"]:focus {
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+  }
+
+  input[type="file"] {
+    padding: 10px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    color: #ddd;
+    cursor: pointer;
+  }
+
+  /* TOMBOL KEREN */
+  button {
+    padding: 12px 25px;
+    border-radius: 50px;
+    border: none;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 210, 255, 0.6);
+  }
+
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #555;
+    box-shadow: none;
+  }
+
+  /* LINK DOWNLOAD */
+  .replicas { margin-top: 15px; }
+  .replicas a button {
+    background: transparent;
+    border: 1px solid var(--primary);
+    box-shadow: none;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  .replicas a button:hover {
+    background: var(--primary);
+    color: #000;
+  }
+
+  /* INFO TEXT */
+  .muted {
+    color: #888;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    font-style: italic;
+  }
+  
+  code {
+    background: rgba(255,255,255,0.1);
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #ff7675;
+  }
+
+  /* HASIL RESULT */
+  pre {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    border-radius: 10px;
+    overflow-x: auto;
+    color: #fab1a0;
+    border: 1px dashed rgba(255,255,255,0.2);
+    margin-top: 15px;
+  }
+  
+  #uploadResult, #lookupResult {
+    margin-top: 20px;
+  }
+
+  /* ANIMASI LOAD */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .card { animation: fadeIn 0.6s ease-out forwards; }
+  .card:nth-child(2) { animation-delay: 0.2s; }
+</style>
+</head>
+<body>
+
+<h1>⚡ DFS Mini System ⚡</h1>
+
+<div class="card">
+  <h2>🚀 Upload File</h2>
+  <form id="uploadForm">
+    <div class="row">
+      <label>Nama File</label> 
+      <input type="text" id="filename" placeholder="Contoh: laporan_final.pdf" required>
+    </div>
+    <div class="row">
+      <label>Pilih File</label> 
+      <input type="file" id="file" required>
+    </div>
+    <div class="row" style="justify-content: flex-end;">
+      <button type="submit" id="btnUpload">Upload & Replicate</button>
+    </div>
+  </form>
+  <div class="muted">System Flow: Hit <code>/allocate</code> → Upload ke 2 Node → <code>/commit</code></div>
+  <div id="uploadResult"></div>
+</div>
+
+<div class="card">
+  <h2>🔍 Lookup & Download</h2>
+  <div class="row">
+    <label>File ID</label> 
+    <input type="text" id="lookupId" placeholder="Masukkan File ID jika tahu">
+    <button id="btnLookup">Lookup by ID</button>
+  </div>
+  <div class="row">
+    <label>Nama File</label>
+    <input type="text" id="searchName" placeholder="Cari berdasarkan nama file">
+    <button id="btnSearch">Search by Name</button>
+  </div>
+  <div id="lookupResult"></div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+function fmtJson(o){ return '<pre>'+JSON.stringify(o, null, 2)+'</pre>'; }
+
+// LOGIC UPLOAD
+$("#uploadForm").addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  const filename = $("#filename").value.trim();
+  const file = $("#file").files[0];
+  if(!filename || !file){ alert("Isi filename dan pilih file dulu ya!"); return; }
+
+  $("#btnUpload").disabled = true;
+  $("#btnUpload").innerHTML = "Sedang Upload...";
+  $("#uploadResult").innerHTML = '<div style="color:#00d2ff">⏳ Processing data blocks...</div>';
+
+  const form = new FormData();
+  form.append("filename", filename);
+  form.append("file", file);
+
+  try {
+    const res = await fetch("/api/upload", { method:"POST", body: form });
+    const raw = await res.text();
+    let data;
+    try { data = JSON.parse(raw) } catch { data = { error: raw } }
+    if (res.ok && !data.error) {
+      $("#uploadResult").innerHTML = '<b>✅ Upload Berhasil!</b>'+fmtJson(data)
+        + (data.fileId ? ('<div style="margin-top:10px">Quick Lookup: <a href="#" style="color:#00d2ff" onclick="quickLookup(\''+data.fileId+'\')">'+data.fileId+'</a></div>') : '');
+      if (data.fileId) { $("#lookupId").value = data.fileId; }
+    } else {
+      $("#uploadResult").innerHTML = '<div class="muted">❌ Upload gagal: '+(data.error||raw)+'</div>';
+    }
+  } catch(err){
+    $("#uploadResult").innerHTML = '<span style="color:red">❌ Error: '+err+'</span>';
+  } finally {
+    $("#btnUpload").disabled = false;
+    $("#btnUpload").innerHTML = "Upload & Replicate";
+  }
+});
+
+async function quickLookup(fid){
+  $("#lookupId").value = fid;
+  await doLookup();
+}
+
+// LOGIC LOOKUP
+$("#btnLookup").addEventListener("click", async ()=>{
+  await doLookup();
+});
+
+$("#btnSearch").addEventListener("click", async ()=>{
+  const name = $("#searchName").value.trim();
+  if(!name){ alert("Masukkan nama file"); return }
+  $("#lookupResult").innerHTML = '<div style="color:#00d2ff">🔎 Searching by name...</div>';
+  try{
+    const res = await fetch("/api/search?filename="+encodeURIComponent(name));
+    const arr = await res.json();
+    if(!Array.isArray(arr) || arr.length===0){ $("#lookupResult").innerHTML = '<div class="muted">Tidak ditemukan</div>'; return }
+    let html = '';
+    for(const f of arr){
+      html += '<div style="margin:10px 0; padding:10px; border:1px dashed #555; border-radius:8px">'
+        + '<div><b>'+f.filename+'</b> ('+formatSize(f.size)+') — ID: <code>'+f.fileId+'</code></div>'
+        + '<div style="margin-top:8px">'
+        + '<button onclick="quickLookup(\''+f.fileId+'\')">Lookup Nodes</button>'
+        + '</div>'
+        + '</div>';
+    }
+    $("#lookupResult").innerHTML = html;
+  }catch(err){
+    $("#lookupResult").innerHTML = '<span style="color:red">❌ Error: '+err+'</span>';
+  }
+});
+
+async function doLookup(){
+  const fid = $("#lookupId").value.trim();
+  if(!fid){ alert("Masukin File ID nya dulu dong"); return; }
+  
+  $("#lookupResult").innerHTML = '<div style="color:#00d2ff">🔎 Searching across nodes...</div>';
+  
+  try {
+    const res = await fetch("/api/lookup?fileId="+encodeURIComponent(fid));
+    const data = await res.json();
+    let html = '<b>📄 Data Ditemukan:</b>'+fmtJson(data);
+    if (Array.isArray(data)) {
+      html += '<div class="replicas" style="margin-top:15px; border-top:1px solid #444; padding-top:15px;">';
+      html += '<div style="margin-bottom:10px; font-weight:bold;">⬇️ Download dari Node Tersedia:</div>';
+      for (const r of data) {
+        const nodeUrl = r.url ?? r.URL;      
+        const nodeId  = r.nodeId ?? r.NodeID; 
+        if (!nodeUrl) continue;               
+        const url = '/api/download?fileId=' + encodeURIComponent(fid) +
+                    '&nodeUrl=' + encodeURIComponent(nodeUrl);
+        html += '<a href="'+url+'" target="\_blank"><button>📥 Download via '+nodeId+'</button></a>';
+      }
+      html += '</div>';
+    }
+    $("#lookupResult").innerHTML = html;
+  } catch(err){
+    $("#lookupResult").innerHTML = '<span style="color:red">❌ Gagal mencari: '+err+'</span>';
+  }
+}
+</script>
+<script>
+function formatSize(b){ const k=1024; const s=['B','KB','MB','GB']; let i=0; while(b>=k && i<s.length-1){ b/=k; i++ } return Math.round(b*100)/100+' '+s[i] }
+</script>
+</body>
+</html>

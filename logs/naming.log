@@ -1,0 +1,311 @@
+2025/12/04 01:47:56 Auto-healing background job started
+2025/12/04 01:47:56 Naming Service running at :8000 ...
+2025/12/04 01:47:56 POST /register-node 565.2µs
+2025/12/04 01:47:56 POST /register-node 3.9877ms
+2025/12/04 01:48:00 GET /list-files 0s
+2025/12/04 01:48:00 GET /metrics 0s
+2025/12/04 01:48:00 GET /metrics 0s
+2025/12/04 01:48:00 GET /list-nodes 0s
+2025/12/04 01:48:01 POST /heartbeat 0s
+2025/12/04 01:48:01 POST /heartbeat 0s
+2025/12/04 01:48:05 GET /metrics 0s
+2025/12/04 01:48:05 GET /list-files 504.5µs
+2025/12/04 01:48:05 GET /list-nodes 504.5µs
+2025/12/04 01:48:05 GET /metrics 0s
+2025/12/04 01:48:06 POST /heartbeat 0s
+2025/12/04 01:48:06 POST /heartbeat 0s
+2025/12/04 01:48:07 GET /metrics 0s
+2025/12/04 01:48:07 GET /list-nodes 0s
+2025/12/04 01:48:07 GET /list-files 0s
+2025/12/04 01:48:10 GET /list-nodes 0s
+2025/12/04 01:48:10 GET /metrics 0s
+2025/12/04 01:48:10 GET /metrics 0s
+2025/12/04 01:48:10 GET /list-nodes 0s
+2025/12/04 01:48:10 GET /list-files 0s
+2025/12/04 01:48:10 GET /metrics 0s
+2025/12/04 01:48:11 POST /heartbeat 0s
+2025/12/04 01:48:11 POST /heartbeat 515.5µs
+2025/12/04 01:48:15 GET /metrics 0s
+2025/12/04 01:48:15 GET /list-nodes 0s
+2025/12/04 01:48:15 GET /list-files 0s
+2025/12/04 01:48:15 GET /metrics 0s
+2025/12/04 01:48:16 POST /heartbeat 0s
+2025/12/04 01:48:16 POST /heartbeat 0s
+2025/12/04 01:48:20 GET /list-nodes 0s
+2025/12/04 01:48:20 GET /metrics 0s
+2025/12/04 01:48:20 GET /list-files 0s
+2025/12/04 01:48:20 GET /metrics 0s
+2025/12/04 01:48:21 POST /heartbeat 0s
+2025/12/04 01:48:21 POST /heartbeat 0s
+2025/12/04 01:48:24 GET /list-nodes 0s
+2025/12/04 01:48:25 GET /metrics 0s
+2025/12/04 01:48:25 GET /list-nodes 0s
+2025/12/04 01:48:25 GET /list-files 0s
+2025/12/04 01:48:25 GET /metrics 0s
+2025/12/04 01:48:26 GET /list-nodes 0s
+2025/12/04 01:48:26 POST /heartbeat 0s
+2025/12/04 01:48:30 GET /metrics 0s
+2025/12/04 01:48:30 GET /list-nodes 0s
+2025/12/04 01:48:30 GET /metrics 0s
+2025/12/04 01:48:30 GET /list-files 0s
+2025/12/04 01:48:31 POST /heartbeat 0s
+2025/12/04 01:48:35 GET /list-nodes 0s
+2025/12/04 01:48:35 GET /metrics 0s
+2025/12/04 01:48:35 GET /metrics 0s
+2025/12/04 01:48:35 GET /list-files 0s
+2025/12/04 01:48:36 POST /heartbeat 0s
+2025/12/04 01:48:39 GET /metrics 0s
+2025/12/04 01:48:40 GET /metrics 0s
+2025/12/04 01:48:40 GET /list-nodes 0s
+2025/12/04 01:48:40 GET /list-files 0s
+2025/12/04 01:48:40 GET /metrics 0s
+2025/12/04 01:48:41 POST /heartbeat 0s
+2025/12/04 01:48:45 GET /metrics 0s
+2025/12/04 01:48:45 GET /list-nodes 507.4µs
+2025/12/04 01:48:45 GET /metrics 0s
+2025/12/04 01:48:45 GET /list-files 0s
+2025/12/04 01:48:46 POST /heartbeat 0s
+2025/12/04 01:48:50 GET /metrics 0s
+2025/12/04 01:48:50 GET /metrics 0s
+2025/12/04 01:48:50 GET /list-files 796µs
+2025/12/04 01:48:50 GET /list-nodes 0s
+2025/12/04 01:48:51 POST /heartbeat 0s
+2025/12/04 01:48:55 GET /metrics 0s
+2025/12/04 01:48:55 GET /list-nodes 0s
+2025/12/04 01:48:55 GET /list-files 507.6µs
+2025/12/04 01:48:55 GET /metrics 0s
+2025/12/04 01:48:56 [AUTO-HEAL] File a2cbe320-1321-96e8-41f6-0df95beb49c5 (ya) has only 1 healthy replicas, need 2
+2025/12/04 01:48:56 [AUTO-HEAL] Not enough candidate nodes for file a2cbe320-1321-96e8-41f6-0df95beb49c5 (need 1, have 0)
+2025/12/04 01:48:56 [AUTO-HEAL] File a6c6e791-cfbc-066f-ceba-3b5c91e7f555 (test) has only 1 healthy replicas, need 2
+2025/12/04 01:48:56 [AUTO-HEAL] Not enough candidate nodes for file a6c6e791-cfbc-066f-ceba-3b5c91e7f555 (need 1, have 0)
+2025/12/04 01:48:56 [AUTO-HEAL] File d89804ff-34d0-e9b5-0bce-edcc2bada5f3 (Screenshot 2025-11-26 181504.png) has only 1 healthy replicas, need 2
+2025/12/04 01:48:56 [AUTO-HEAL] Not enough candidate nodes for file d89804ff-34d0-e9b5-0bce-edcc2bada5f3 (need 1, have 0)
+2025/12/04 01:48:56 [AUTO-HEAL] File 499a894c-396d-a14d-9fe6-5c1453b67824 (demo.txt) has only 1 healthy replicas, need 2
+2025/12/04 01:48:56 [AUTO-HEAL] Not enough candidate nodes for file 499a894c-396d-a14d-9fe6-5c1453b67824 (need 1, have 0)
+2025/12/04 01:48:56 [AUTO-HEAL] File 513f96d1-6a67-4c1f-b10f-23e86402e32b (ya) has only 1 healthy replicas, need 2
+2025/12/04 01:48:56 [AUTO-HEAL] Not enough candidate nodes for file 513f96d1-6a67-4c1f-b10f-23e86402e32b (need 1, have 0)
+2025/12/04 01:48:56 [AUTO-HEAL] File 70442bd3-d31a-1c90-2d93-312f94b32685 (tes123) has only 1 healthy replicas, need 2
+2025/12/04 01:48:56 [AUTO-HEAL] Not enough candidate nodes for file 70442bd3-d31a-1c90-2d93-312f94b32685 (need 1, have 0)
+2025/12/04 01:48:56 [AUTO-HEAL] File a213fabf-41b4-ae84-8c71-f102ac02d09e (test) has only 1 healthy replicas, need 2
+2025/12/04 01:48:56 [AUTO-HEAL] Not enough candidate nodes for file a213fabf-41b4-ae84-8c71-f102ac02d09e (need 1, have 0)
+2025/12/04 01:48:56 [AUTO-HEAL] File bd78192d-05a4-351a-dfcd-abb4a057063b (tes66) has only 1 healthy replicas, need 2
+2025/12/04 01:48:56 [AUTO-HEAL] Not enough candidate nodes for file bd78192d-05a4-351a-dfcd-abb4a057063b (need 1, have 0)
+2025/12/04 01:48:56 [AUTO-HEAL] File 6ca6efca-9b23-0625-fda2-25a5c9e5c902 (tes123) has only 1 healthy replicas, need 2
+2025/12/04 01:48:56 [AUTO-HEAL] Not enough candidate nodes for file 6ca6efca-9b23-0625-fda2-25a5c9e5c902 (need 1, have 0)
+2025/12/04 01:48:56 [AUTO-HEAL] File 99cffff1-4491-3b40-672a-469567c0b467 (test) has only 1 healthy replicas, need 2
+2025/12/04 01:48:56 [AUTO-HEAL] Not enough candidate nodes for file 99cffff1-4491-3b40-672a-469567c0b467 (need 1, have 0)
+2025/12/04 01:48:56 POST /heartbeat 0s
+2025/12/04 01:49:00 GET /metrics 0s
+2025/12/04 01:49:00 GET /list-nodes 0s
+2025/12/04 01:49:00 GET /list-files 0s
+2025/12/04 01:49:00 GET /metrics 0s
+2025/12/04 01:49:01 POST /heartbeat 0s
+2025/12/04 01:49:05 GET /metrics 0s
+2025/12/04 01:49:05 GET /list-nodes 545.3µs
+2025/12/04 01:49:05 GET /list-files 0s
+2025/12/04 01:49:05 GET /metrics 0s
+2025/12/04 01:49:06 POST /heartbeat 0s
+2025/12/04 01:49:07 GET /metrics 0s
+2025/12/04 01:49:07 GET /list-nodes 0s
+2025/12/04 01:49:07 GET /list-files 0s
+2025/12/04 01:49:07 GET /list-nodes 0s
+2025/12/04 01:49:07 GET /metrics 0s
+2025/12/04 01:49:09 GET /list-nodes 0s
+2025/12/04 01:49:09 GET /metrics 0s
+2025/12/04 01:49:10 GET /metrics 0s
+2025/12/04 01:49:10 GET /list-nodes 0s
+2025/12/04 01:49:10 GET /list-files 0s
+2025/12/04 01:49:10 GET /metrics 0s
+2025/12/04 01:49:11 POST /heartbeat 0s
+2025/12/04 01:49:14 GET /list-nodes 0s
+2025/12/04 01:49:15 GET /list-nodes 0s
+2025/12/04 01:49:15 GET /metrics 0s
+2025/12/04 01:49:15 GET /metrics 0s
+2025/12/04 01:49:15 GET /list-nodes 0s
+2025/12/04 01:49:15 GET /metrics 0s
+2025/12/04 01:49:15 GET /list-files 0s
+2025/12/04 01:49:20 GET /metrics 0s
+2025/12/04 01:49:20 GET /list-files 0s
+2025/12/04 01:49:20 GET /list-nodes 0s
+2025/12/04 01:49:20 GET /metrics 0s
+2025/12/04 01:49:25 GET /metrics 0s
+2025/12/04 01:49:25 GET /list-nodes 0s
+2025/12/04 01:49:25 GET /metrics 0s
+2025/12/04 01:49:25 GET /list-files 0s
+2025/12/04 01:49:26 [AUTO-HEAL] File 499a894c-396d-a14d-9fe6-5c1453b67824 (demo.txt) has only 0 healthy replicas, need 2
+2025/12/04 01:49:26 [AUTO-HEAL] Not enough candidate nodes for file 499a894c-396d-a14d-9fe6-5c1453b67824 (need 2, have 0)
+2025/12/04 01:49:26 [AUTO-HEAL] File 513f96d1-6a67-4c1f-b10f-23e86402e32b (ya) has only 0 healthy replicas, need 2
+2025/12/04 01:49:26 [AUTO-HEAL] Not enough candidate nodes for file 513f96d1-6a67-4c1f-b10f-23e86402e32b (need 2, have 0)
+2025/12/04 01:49:26 [AUTO-HEAL] File 70442bd3-d31a-1c90-2d93-312f94b32685 (tes123) has only 0 healthy replicas, need 2
+2025/12/04 01:49:26 [AUTO-HEAL] Not enough candidate nodes for file 70442bd3-d31a-1c90-2d93-312f94b32685 (need 2, have 0)
+2025/12/04 01:49:26 [AUTO-HEAL] File a213fabf-41b4-ae84-8c71-f102ac02d09e (test) has only 0 healthy replicas, need 2
+2025/12/04 01:49:26 [AUTO-HEAL] Not enough candidate nodes for file a213fabf-41b4-ae84-8c71-f102ac02d09e (need 2, have 0)
+2025/12/04 01:49:26 [AUTO-HEAL] File bd78192d-05a4-351a-dfcd-abb4a057063b (tes66) has only 0 healthy replicas, need 2
+2025/12/04 01:49:26 [AUTO-HEAL] Not enough candidate nodes for file bd78192d-05a4-351a-dfcd-abb4a057063b (need 2, have 0)
+2025/12/04 01:49:26 [AUTO-HEAL] File 6ca6efca-9b23-0625-fda2-25a5c9e5c902 (tes123) has only 0 healthy replicas, need 2
+2025/12/04 01:49:26 [AUTO-HEAL] Not enough candidate nodes for file 6ca6efca-9b23-0625-fda2-25a5c9e5c902 (need 2, have 0)
+2025/12/04 01:49:26 [AUTO-HEAL] File 99cffff1-4491-3b40-672a-469567c0b467 (test) has only 0 healthy replicas, need 2
+2025/12/04 01:49:26 [AUTO-HEAL] Not enough candidate nodes for file 99cffff1-4491-3b40-672a-469567c0b467 (need 2, have 0)
+2025/12/04 01:49:26 [AUTO-HEAL] File a2cbe320-1321-96e8-41f6-0df95beb49c5 (ya) has only 0 healthy replicas, need 2
+2025/12/04 01:49:26 [AUTO-HEAL] Not enough candidate nodes for file a2cbe320-1321-96e8-41f6-0df95beb49c5 (need 2, have 0)
+2025/12/04 01:49:26 [AUTO-HEAL] File a6c6e791-cfbc-066f-ceba-3b5c91e7f555 (test) has only 0 healthy replicas, need 2
+2025/12/04 01:49:26 [AUTO-HEAL] Not enough candidate nodes for file a6c6e791-cfbc-066f-ceba-3b5c91e7f555 (need 2, have 0)
+2025/12/04 01:49:26 [AUTO-HEAL] File d89804ff-34d0-e9b5-0bce-edcc2bada5f3 (Screenshot 2025-11-26 181504.png) has only 0 healthy replicas, need 2
+2025/12/04 01:49:26 [AUTO-HEAL] Not enough candidate nodes for file d89804ff-34d0-e9b5-0bce-edcc2bada5f3 (need 2, have 0)
+2025/12/04 01:49:30 GET /metrics 0s
+2025/12/04 01:49:30 GET /list-nodes 0s
+2025/12/04 01:49:30 GET /list-files 0s
+2025/12/04 01:49:30 GET /metrics 0s
+2025/12/04 01:49:35 GET /metrics 0s
+2025/12/04 01:49:35 GET /list-nodes 0s
+2025/12/04 01:49:35 GET /list-files 0s
+2025/12/04 01:49:35 GET /metrics 0s
+2025/12/04 01:49:40 GET /list-nodes 0s
+2025/12/04 01:49:40 GET /metrics 0s
+2025/12/04 01:49:40 GET /metrics 0s
+2025/12/04 01:49:40 GET /list-nodes 0s
+2025/12/04 01:49:40 GET /list-files 0s
+2025/12/04 01:49:40 GET /metrics 533.2µs
+2025/12/04 01:49:45 GET /metrics 0s
+2025/12/04 01:49:45 GET /list-nodes 0s
+2025/12/04 01:49:45 GET /list-files 0s
+2025/12/04 01:49:45 GET /metrics 531.8µs
+2025/12/04 01:49:50 GET /list-nodes 0s
+2025/12/04 01:49:50 GET /metrics 616µs
+2025/12/04 01:49:50 GET /list-files 0s
+2025/12/04 01:49:50 GET /metrics 0s
+2025/12/04 01:49:55 GET /metrics 0s
+2025/12/04 01:49:55 GET /list-nodes 0s
+2025/12/04 01:49:55 GET /list-files 0s
+2025/12/04 01:49:55 GET /metrics 0s
+2025/12/04 01:49:56 [AUTO-HEAL] File 499a894c-396d-a14d-9fe6-5c1453b67824 (demo.txt) has only 0 healthy replicas, need 2
+2025/12/04 01:49:56 [AUTO-HEAL] Not enough candidate nodes for file 499a894c-396d-a14d-9fe6-5c1453b67824 (need 2, have 0)
+2025/12/04 01:49:56 [AUTO-HEAL] File 513f96d1-6a67-4c1f-b10f-23e86402e32b (ya) has only 0 healthy replicas, need 2
+2025/12/04 01:49:56 [AUTO-HEAL] Not enough candidate nodes for file 513f96d1-6a67-4c1f-b10f-23e86402e32b (need 2, have 0)
+2025/12/04 01:49:56 [AUTO-HEAL] File 70442bd3-d31a-1c90-2d93-312f94b32685 (tes123) has only 0 healthy replicas, need 2
+2025/12/04 01:49:56 [AUTO-HEAL] Not enough candidate nodes for file 70442bd3-d31a-1c90-2d93-312f94b32685 (need 2, have 0)
+2025/12/04 01:49:56 [AUTO-HEAL] File a213fabf-41b4-ae84-8c71-f102ac02d09e (test) has only 0 healthy replicas, need 2
+2025/12/04 01:49:56 [AUTO-HEAL] Not enough candidate nodes for file a213fabf-41b4-ae84-8c71-f102ac02d09e (need 2, have 0)
+2025/12/04 01:49:56 [AUTO-HEAL] File bd78192d-05a4-351a-dfcd-abb4a057063b (tes66) has only 0 healthy replicas, need 2
+2025/12/04 01:49:56 [AUTO-HEAL] Not enough candidate nodes for file bd78192d-05a4-351a-dfcd-abb4a057063b (need 2, have 0)
+2025/12/04 01:49:56 [AUTO-HEAL] File 6ca6efca-9b23-0625-fda2-25a5c9e5c902 (tes123) has only 0 healthy replicas, need 2
+2025/12/04 01:49:56 [AUTO-HEAL] Not enough candidate nodes for file 6ca6efca-9b23-0625-fda2-25a5c9e5c902 (need 2, have 0)
+2025/12/04 01:49:56 [AUTO-HEAL] File 99cffff1-4491-3b40-672a-469567c0b467 (test) has only 0 healthy replicas, need 2
+2025/12/04 01:49:56 [AUTO-HEAL] Not enough candidate nodes for file 99cffff1-4491-3b40-672a-469567c0b467 (need 2, have 0)
+2025/12/04 01:49:56 [AUTO-HEAL] File a2cbe320-1321-96e8-41f6-0df95beb49c5 (ya) has only 0 healthy replicas, need 2
+2025/12/04 01:49:56 [AUTO-HEAL] Not enough candidate nodes for file a2cbe320-1321-96e8-41f6-0df95beb49c5 (need 2, have 0)
+2025/12/04 01:49:56 [AUTO-HEAL] File a6c6e791-cfbc-066f-ceba-3b5c91e7f555 (test) has only 0 healthy replicas, need 2
+2025/12/04 01:49:56 [AUTO-HEAL] Not enough candidate nodes for file a6c6e791-cfbc-066f-ceba-3b5c91e7f555 (need 2, have 0)
+2025/12/04 01:49:56 [AUTO-HEAL] File d89804ff-34d0-e9b5-0bce-edcc2bada5f3 (Screenshot 2025-11-26 181504.png) has only 0 healthy replicas, need 2
+2025/12/04 01:49:56 [AUTO-HEAL] Not enough candidate nodes for file d89804ff-34d0-e9b5-0bce-edcc2bada5f3 (need 2, have 0)
+2025/12/04 01:49:59 GET /metrics 0s
+2025/12/04 01:49:59 GET /list-nodes 0s
+2025/12/04 01:50:00 GET /list-nodes 0s
+2025/12/04 01:50:00 GET /metrics 0s
+2025/12/04 01:50:00 GET /metrics 0s
+2025/12/04 01:50:00 GET /list-nodes 0s
+2025/12/04 01:50:00 GET /list-files 0s
+2025/12/04 01:50:00 GET /metrics 0s
+2025/12/04 01:50:01 GET /list-nodes 0s
+2025/12/04 01:50:01 GET /metrics 0s
+2025/12/04 01:50:01 GET /list-nodes 0s
+2025/12/04 01:50:01 GET /metrics 0s
+2025/12/04 01:50:05 GET /metrics 0s
+2025/12/04 01:50:05 GET /list-nodes 0s
+2025/12/04 01:50:05 GET /list-files 0s
+2025/12/04 01:50:05 GET /metrics 0s
+2025/12/04 01:50:07 GET /metrics 0s
+2025/12/04 01:50:07 GET /list-nodes 0s
+2025/12/04 01:50:07 GET /list-files 0s
+2025/12/04 01:50:10 GET /metrics 0s
+2025/12/04 01:50:10 GET /list-nodes 0s
+2025/12/04 01:50:10 GET /list-files 0s
+2025/12/04 01:50:10 GET /metrics 0s
+2025/12/04 01:50:15 GET /metrics 0s
+2025/12/04 01:50:15 GET /list-nodes 0s
+2025/12/04 01:50:15 GET /list-files 0s
+2025/12/04 01:50:15 GET /metrics 0s
+2025/12/04 01:50:20 GET /list-nodes 0s
+2025/12/04 01:50:20 GET /metrics 0s
+2025/12/04 01:50:20 GET /list-files 0s
+2025/12/04 01:50:20 GET /metrics 0s
+2025/12/04 01:50:25 GET /metrics 0s
+2025/12/04 01:50:25 GET /list-nodes 0s
+2025/12/04 01:50:25 GET /list-files 0s
+2025/12/04 01:50:25 GET /metrics 0s
+2025/12/04 01:50:26 [AUTO-HEAL] File 499a894c-396d-a14d-9fe6-5c1453b67824 (demo.txt) has only 0 healthy replicas, need 2
+2025/12/04 01:50:26 [AUTO-HEAL] Not enough candidate nodes for file 499a894c-396d-a14d-9fe6-5c1453b67824 (need 2, have 0)
+2025/12/04 01:50:26 [AUTO-HEAL] File 513f96d1-6a67-4c1f-b10f-23e86402e32b (ya) has only 0 healthy replicas, need 2
+2025/12/04 01:50:26 [AUTO-HEAL] Not enough candidate nodes for file 513f96d1-6a67-4c1f-b10f-23e86402e32b (need 2, have 0)
+2025/12/04 01:50:26 [AUTO-HEAL] File 70442bd3-d31a-1c90-2d93-312f94b32685 (tes123) has only 0 healthy replicas, need 2
+2025/12/04 01:50:26 [AUTO-HEAL] Not enough candidate nodes for file 70442bd3-d31a-1c90-2d93-312f94b32685 (need 2, have 0)
+2025/12/04 01:50:26 [AUTO-HEAL] File a213fabf-41b4-ae84-8c71-f102ac02d09e (test) has only 0 healthy replicas, need 2
+2025/12/04 01:50:26 [AUTO-HEAL] Not enough candidate nodes for file a213fabf-41b4-ae84-8c71-f102ac02d09e (need 2, have 0)
+2025/12/04 01:50:26 [AUTO-HEAL] File bd78192d-05a4-351a-dfcd-abb4a057063b (tes66) has only 0 healthy replicas, need 2
+2025/12/04 01:50:26 [AUTO-HEAL] Not enough candidate nodes for file bd78192d-05a4-351a-dfcd-abb4a057063b (need 2, have 0)
+2025/12/04 01:50:26 [AUTO-HEAL] File 6ca6efca-9b23-0625-fda2-25a5c9e5c902 (tes123) has only 0 healthy replicas, need 2
+2025/12/04 01:50:26 [AUTO-HEAL] Not enough candidate nodes for file 6ca6efca-9b23-0625-fda2-25a5c9e5c902 (need 2, have 0)
+2025/12/04 01:50:26 [AUTO-HEAL] File 99cffff1-4491-3b40-672a-469567c0b467 (test) has only 0 healthy replicas, need 2
+2025/12/04 01:50:26 [AUTO-HEAL] Not enough candidate nodes for file 99cffff1-4491-3b40-672a-469567c0b467 (need 2, have 0)
+2025/12/04 01:50:26 [AUTO-HEAL] File a2cbe320-1321-96e8-41f6-0df95beb49c5 (ya) has only 0 healthy replicas, need 2
+2025/12/04 01:50:26 [AUTO-HEAL] Not enough candidate nodes for file a2cbe320-1321-96e8-41f6-0df95beb49c5 (need 2, have 0)
+2025/12/04 01:50:26 [AUTO-HEAL] File a6c6e791-cfbc-066f-ceba-3b5c91e7f555 (test) has only 0 healthy replicas, need 2
+2025/12/04 01:50:26 [AUTO-HEAL] Not enough candidate nodes for file a6c6e791-cfbc-066f-ceba-3b5c91e7f555 (need 2, have 0)
+2025/12/04 01:50:26 [AUTO-HEAL] File d89804ff-34d0-e9b5-0bce-edcc2bada5f3 (Screenshot 2025-11-26 181504.png) has only 0 healthy replicas, need 2
+2025/12/04 01:50:26 [AUTO-HEAL] Not enough candidate nodes for file d89804ff-34d0-e9b5-0bce-edcc2bada5f3 (need 2, have 0)
+2025/12/04 01:50:30 GET /metrics 0s
+2025/12/04 01:50:30 GET /list-nodes 0s
+2025/12/04 01:50:30 GET /list-files 559.6µs
+2025/12/04 01:50:30 GET /metrics 0s
+2025/12/04 01:50:35 GET /list-nodes 0s
+2025/12/04 01:50:35 GET /metrics 0s
+2025/12/04 01:50:35 GET /list-files 0s
+2025/12/04 01:50:35 GET /metrics 0s
+2025/12/04 01:50:40 GET /metrics 0s
+2025/12/04 01:50:40 GET /list-nodes 0s
+2025/12/04 01:50:40 GET /list-files 0s
+2025/12/04 01:50:40 GET /metrics 0s
+2025/12/04 01:50:45 GET /metrics 0s
+2025/12/04 01:50:45 GET /list-nodes 0s
+2025/12/04 01:50:45 GET /list-files 0s
+2025/12/04 01:50:45 GET /metrics 0s
+2025/12/04 01:50:50 GET /list-nodes 0s
+2025/12/04 01:50:50 GET /metrics 0s
+2025/12/04 01:50:50 GET /list-files 0s
+2025/12/04 01:50:50 GET /metrics 0s
+2025/12/04 01:50:55 GET /metrics 0s
+2025/12/04 01:50:55 GET /list-nodes 0s
+2025/12/04 01:50:55 GET /list-files 0s
+2025/12/04 01:50:55 GET /metrics 0s
+2025/12/04 01:50:56 [AUTO-HEAL] File a2cbe320-1321-96e8-41f6-0df95beb49c5 (ya) has only 0 healthy replicas, need 2
+2025/12/04 01:50:56 [AUTO-HEAL] Not enough candidate nodes for file a2cbe320-1321-96e8-41f6-0df95beb49c5 (need 2, have 0)
+2025/12/04 01:50:56 [AUTO-HEAL] File a6c6e791-cfbc-066f-ceba-3b5c91e7f555 (test) has only 0 healthy replicas, need 2
+2025/12/04 01:50:56 [AUTO-HEAL] Not enough candidate nodes for file a6c6e791-cfbc-066f-ceba-3b5c91e7f555 (need 2, have 0)
+2025/12/04 01:50:56 [AUTO-HEAL] File d89804ff-34d0-e9b5-0bce-edcc2bada5f3 (Screenshot 2025-11-26 181504.png) has only 0 healthy replicas, need 2
+2025/12/04 01:50:56 [AUTO-HEAL] Not enough candidate nodes for file d89804ff-34d0-e9b5-0bce-edcc2bada5f3 (need 2, have 0)
+2025/12/04 01:50:56 [AUTO-HEAL] File 499a894c-396d-a14d-9fe6-5c1453b67824 (demo.txt) has only 0 healthy replicas, need 2
+2025/12/04 01:50:56 [AUTO-HEAL] Not enough candidate nodes for file 499a894c-396d-a14d-9fe6-5c1453b67824 (need 2, have 0)
+2025/12/04 01:50:56 [AUTO-HEAL] File 513f96d1-6a67-4c1f-b10f-23e86402e32b (ya) has only 0 healthy replicas, need 2
+2025/12/04 01:50:56 [AUTO-HEAL] Not enough candidate nodes for file 513f96d1-6a67-4c1f-b10f-23e86402e32b (need 2, have 0)
+2025/12/04 01:50:56 [AUTO-HEAL] File 70442bd3-d31a-1c90-2d93-312f94b32685 (tes123) has only 0 healthy replicas, need 2
+2025/12/04 01:50:56 [AUTO-HEAL] Not enough candidate nodes for file 70442bd3-d31a-1c90-2d93-312f94b32685 (need 2, have 0)
+2025/12/04 01:50:56 [AUTO-HEAL] File a213fabf-41b4-ae84-8c71-f102ac02d09e (test) has only 0 healthy replicas, need 2
+2025/12/04 01:50:56 [AUTO-HEAL] Not enough candidate nodes for file a213fabf-41b4-ae84-8c71-f102ac02d09e (need 2, have 0)
+2025/12/04 01:50:56 [AUTO-HEAL] File bd78192d-05a4-351a-dfcd-abb4a057063b (tes66) has only 0 healthy replicas, need 2
+2025/12/04 01:50:56 [AUTO-HEAL] Not enough candidate nodes for file bd78192d-05a4-351a-dfcd-abb4a057063b (need 2, have 0)
+2025/12/04 01:50:56 [AUTO-HEAL] File 6ca6efca-9b23-0625-fda2-25a5c9e5c902 (tes123) has only 0 healthy replicas, need 2
+2025/12/04 01:50:56 [AUTO-HEAL] Not enough candidate nodes for file 6ca6efca-9b23-0625-fda2-25a5c9e5c902 (need 2, have 0)
+2025/12/04 01:50:56 [AUTO-HEAL] File 99cffff1-4491-3b40-672a-469567c0b467 (test) has only 0 healthy replicas, need 2
+2025/12/04 01:50:56 [AUTO-HEAL] Not enough candidate nodes for file 99cffff1-4491-3b40-672a-469567c0b467 (need 2, have 0)
+2025/12/04 01:51:00 GET /metrics 0s
+2025/12/04 01:51:00 GET /list-nodes 0s
+2025/12/04 01:51:00 GET /list-files 0s
+2025/12/04 01:51:00 GET /metrics 526.4µs
+2025/12/04 01:51:05 GET /list-nodes 0s
+2025/12/04 01:51:05 GET /metrics 0s
+2025/12/04 01:51:05 GET /list-files 0s
+2025/12/04 01:51:05 GET /metrics 0s
+2025/12/04 01:51:07 GET /metrics 0s
+2025/12/04 01:51:07 GET /list-nodes 0s
+2025/12/04 01:51:07 GET /list-files 0s
+exit status 0xc000013a

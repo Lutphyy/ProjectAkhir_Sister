@@ -1,109 +1,34 @@
 {
-  "443558cd-0815-122b-36ed-7f00517d67c0": {
-    "fileId": "443558cd-0815-122b-36ed-7f00517d67c0",
-    "filename": "tess lagi",
-    "size": 567942,
-    "checksum": "sha256:0fed8708ef8bd5faceaea5456c587759e6e8265bdb7b88b367d72867026fdec5",
-    "contentType": "application/pdf",
+  "1d06b587-185a-ad2d-6234-e83f1fc58bc5": {
+    "fileId": "1d06b587-185a-ad2d-6234-e83f1fc58bc5",
+    "filename": "test deeh",
+    "size": 6438119,
+    "checksum": "sha256:04e52afef07a9b0fc58f0549cb523ed6be8bd277831ff9fd8b7e37e05d2e9535",
+    "contentType": "application/x-zip-compressed",
     "version": 1,
     "replicas": [
       {
         "nodeId": "node-a",
         "url": "http://localhost:9001",
         "status": "READY",
-        "lastVerifiedAt": "2025-11-06T08:37:31.5479126Z"
+        "lastVerifiedAt": "2025-12-03T19:41:24.324727Z"
       },
       {
         "nodeId": "node-b",
         "url": "http://localhost:9002",
         "status": "READY",
-        "lastVerifiedAt": "2025-11-06T08:37:31.5479126Z"
+        "lastVerifiedAt": "2025-12-03T19:41:24.324727Z"
       }
     ],
     "state": "AVAILABLE",
-    "createdAt": "2025-11-06T08:37:31.5404914Z",
-    "updatedAt": "2025-11-06T08:37:31.5479126Z"
+    "createdAt": "2025-12-03T19:41:24.2641662Z",
+    "updatedAt": "2025-12-03T19:41:24.324727Z"
   },
-  "5bc39b26-c63a-631b-852f-94d15445b7d3": {
-    "fileId": "5bc39b26-c63a-631b-852f-94d15445b7d3",
-    "filename": "tessss",
-    "size": 37868,
-    "checksum": "sha256:c7721530257f170a931afdf5470cc2afbac785b2c964af7a0bddf6e6f73227b9",
-    "contentType": "application/pdf",
-    "version": 1,
-    "replicas": [
-      {
-        "nodeId": "node-a",
-        "url": "http://localhost:9001",
-        "status": "READY",
-        "lastVerifiedAt": "2025-11-06T08:31:40.0019616Z"
-      },
-      {
-        "nodeId": "node-b",
-        "url": "http://localhost:9002",
-        "status": "READY",
-        "lastVerifiedAt": "2025-11-06T08:31:40.0019616Z"
-      }
-    ],
-    "state": "AVAILABLE",
-    "createdAt": "2025-11-06T08:31:39.9976404Z",
-    "updatedAt": "2025-11-06T08:31:40.0019616Z"
-  },
-  "a2edeccc-334a-76d1-b91c-797ed686bf0f": {
-    "fileId": "a2edeccc-334a-76d1-b91c-797ed686bf0f",
-    "filename": "filetesting1.pdf",
-    "size": 12345,
-    "checksum": "sha256:deadbeef",
-    "contentType": "application/pdf",
-    "version": 1,
-    "replicas": [
-      {
-        "nodeId": "node-a",
-        "url": "http://localhost:9001",
-        "status": "READY",
-        "lastVerifiedAt": "2025-11-06T08:13:15.9509835Z"
-      },
-      {
-        "nodeId": "node-b",
-        "url": "http://localhost:9002",
-        "status": "READY",
-        "lastVerifiedAt": "2025-11-06T08:13:15.9509835Z"
-      }
-    ],
-    "state": "ALLOCATED",
-    "createdAt": "2025-11-06T08:13:15.9509835Z",
-    "updatedAt": "2025-11-06T08:13:15.9509835Z"
-  },
-  "bb1794f1-5edb-7c8f-8ae7-e7aba1e2cd4e": {
-    "fileId": "bb1794f1-5edb-7c8f-8ae7-e7aba1e2cd4e",
-    "filename": "filekedua",
-    "size": 567942,
-    "checksum": "sha256:0fed8708ef8bd5faceaea5456c587759e6e8265bdb7b88b367d72867026fdec5",
-    "contentType": "application/pdf",
-    "version": 1,
-    "replicas": [
-      {
-        "nodeId": "node-b",
-        "url": "http://localhost:9002",
-        "status": "READY",
-        "lastVerifiedAt": "2025-11-06T08:27:03.6420061Z"
-      },
-      {
-        "nodeId": "node-a",
-        "url": "http://localhost:9001",
-        "status": "READY",
-        "lastVerifiedAt": "2025-11-06T08:27:03.6420061Z"
-      }
-    ],
-    "state": "AVAILABLE",
-    "createdAt": "2025-11-06T08:27:03.6141264Z",
-    "updatedAt": "2025-11-06T08:27:03.6420061Z"
-  },
-  "e6460e55-06aa-9422-5a8d-6ac6e6fba67e": {
-    "fileId": "e6460e55-06aa-9422-5a8d-6ac6e6fba67e",
-    "filename": "tes ajaa",
-    "size": 1398069,
-    "checksum": "sha256:56fdf6ba93432c1f28bea8a53e8fcd516e241dec09839867fb9220fa7a608e93",
+  "bd78192d-05a4-351a-dfcd-abb4a057063b": {
+    "fileId": "bd78192d-05a4-351a-dfcd-abb4a057063b",
+    "filename": "tes66",
+    "size": 152,
+    "checksum": "sha256:621fc331487ef0695c6e757e5c7444ea7caf468fc641f096621813e1b94882a9",
     "contentType": "image/png",
     "version": 1,
     "replicas": [
@@ -111,17 +36,17 @@
         "nodeId": "node-a",
         "url": "http://localhost:9001",
         "status": "READY",
-        "lastVerifiedAt": "2025-11-06T08:36:57.6477812Z"
+        "lastVerifiedAt": "2025-12-03T18:08:34.9208988Z"
       },
       {
         "nodeId": "node-b",
         "url": "http://localhost:9002",
         "status": "READY",
-        "lastVerifiedAt": "2025-11-06T08:36:57.6477812Z"
+        "lastVerifiedAt": "2025-12-03T18:08:34.9208988Z"
       }
     ],
     "state": "AVAILABLE",
-    "createdAt": "2025-11-06T08:36:57.6317883Z",
-    "updatedAt": "2025-11-06T08:36:57.6477812Z"
+    "createdAt": "2025-12-03T18:08:34.9153778Z",
+    "updatedAt": "2025-12-03T18:08:34.9208988Z"
   }
 }
